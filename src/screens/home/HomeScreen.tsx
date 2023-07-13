@@ -73,7 +73,7 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
   const Welcome = () => (
     <>
       <Text h1 bold color={colors.text}>
-        Hello Kuray test
+        Hello Kuray
       </Text>
       <Text
         fontFamily={fonts.montserrat.lightItalic}
