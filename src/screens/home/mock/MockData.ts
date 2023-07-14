@@ -1,30 +1,28 @@
 export default [
   {
-    name: "React Native Dynamic Search Bar",
-    description:
-      "Dynamic fully customizable search bar for both iOS and Android",
+    name: "Easy",
+    description: "Recommended for beginners",
     language: "Typescript",
     star: 342,
     fork: 152,
   },
   {
-    name: "React Native Bouncy Checkbox",
-    description: "Fully customizable animated bouncy checkbox",
+    name: "Normal",
+    description: "Recommended for intermediate level",
     language: "Typescript",
     star: 272,
     fork: 22,
   },
   {
-    name: "React Native Apple Card Views",
-    description:
-      "Customizable and perfect clone of Apple, App Store Card Views",
+    name: "Hard",
+    description: "Recommended for advanced users",
     language: "Typescript",
     star: 266,
     fork: 22,
   },
   {
-    name: "React Native Header View",
-    description: "Fully customizable Header View with multiple design options ",
+    name: "Tutorials",
+    description: "Recommended for first-time users",
     language: "Typescript",
     star: 412,
     fork: 28,

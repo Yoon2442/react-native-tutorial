@@ -73,13 +73,13 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
   const Welcome = () => (
     <>
       <Text h1 bold color={colors.text}>
-        Hello Kuray
+        Choose One
       </Text>
       <Text
         fontFamily={fonts.montserrat.lightItalic}
         color={colors.placeholder}
       >
-        Welcome Back
+        Games
       </Text>
     </>
   );
