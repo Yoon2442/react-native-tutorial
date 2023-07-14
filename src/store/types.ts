@@ -2,6 +2,7 @@
 
 export interface AppState {
   difficulty: string;
+  mission: string[];
 }
 
 export enum ActionType {

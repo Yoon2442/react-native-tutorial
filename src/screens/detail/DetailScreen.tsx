@@ -2,27 +2,30 @@ import React, { useMemo } from "react";
 import { View } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import * as NavigationService from "react-navigation-helpers";
+import { connect } from "react-redux";
+import { AppState } from "../../store/types";
 /**
  * ? Local Imports
  */
 import createStyles from "./DetailScreen.style";
 import Text from "@shared-components/text-wrapper/TextWrapper";
 import RNBounceable from "@freakycoder/react-native-bounceable";
-import { GameData } from "@services/models";
+// import { GameData } from "@services/models";
+
+const mapStateToProps = (state: AppState) => ({
+  difficulty: state.difficulty,
+  mission: state.mission,
+});
 
 interface DetailScreenProps {
   difficulty: string;
-  gameData: GameData;
+  mission: string[];
 }
 
-const DetailScreen: React.FC<DetailScreenProps> = ({
-  difficulty,
-  gameData,
-}) => {
+const DetailScreen: React.FC<DetailScreenProps> = ({ difficulty, mission }) => {
   const theme = useTheme();
   const { colors } = theme;
   const styles = useMemo(() => createStyles(theme), [theme]);
-  const { mission } = gameData;
 
   const Content = () => (
     <View style={styles.contentContainer}>
@@ -47,4 +50,4 @@ const DetailScreen: React.FC<DetailScreenProps> = ({
   );
 };
 
-export default DetailScreen;
+export default connect(mapStateToProps)(DetailScreen);
