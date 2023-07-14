@@ -5,6 +5,8 @@ import Icon, { IconType } from "react-native-dynamic-vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as NavigationService from "react-navigation-helpers";
 import RNBounceable from "@freakycoder/react-native-bounceable";
+import { connect } from "react-redux";
+import { AppState, Action, ActionType } from "../../store/types";
 /**
  * ? Local Imports
  */
@@ -22,7 +24,18 @@ const profileURI =
   // eslint-disable-next-line max-len
   "https://images.unsplash.com/photo-1544568100-847a948585b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80";
 
-interface HomeScreenProps {}
+const mapStateToProps = (state: AppState) => ({
+  difficulty: state.difficulty,
+});
+
+const mapDispatchToProps = (dispatch: (action: Action) => void) => ({
+  setDifficulty: () => dispatch({ type: ActionType.SET_DIFFICULTY }),
+});
+
+interface HomeScreenProps {
+  difficulty: string;
+  setDifficulty: () => void;
+}
 
 const HomeScreen: React.FC<HomeScreenProps> = () => {
   const theme = useTheme();
@@ -99,4 +112,4 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
   );
 };
 
-export default HomeScreen;
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

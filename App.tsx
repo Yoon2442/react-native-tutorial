@@ -2,6 +2,8 @@ import "react-native-gesture-handler";
 import React from "react";
 import { StatusBar, useColorScheme, LogBox } from "react-native";
 import SplashScreen from "react-native-splash-screen";
+import { Provider } from "react-redux";
+import store from "./src/store";
 /**
  * ? Local Imports
  */
@@ -28,7 +30,9 @@ const App = () => {
 
   return (
     <>
-      <Navigation />
+      <Provider store={store}>
+        <Navigation />
+      </Provider>
     </>
   );
 };
