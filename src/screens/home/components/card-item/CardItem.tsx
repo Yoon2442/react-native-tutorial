@@ -23,12 +23,12 @@ const CardItem: React.FC<ICardItemProps> = ({ style, data, onPress }) => {
   const { colors } = theme;
   const styles = useMemo(() => createStyles(theme), [theme]);
 
-  const { name, description, language, star, fork } = data;
+  const { difficulty, description, language, star, fork } = data;
 
   const Header = () => (
     <>
       <Text h4 bold color={colors.text}>
-        {name}
+        {difficulty}
       </Text>
       <Text h5 color={colors.placeholder} style={styles.descriptionTextStyle}>
         {description}

@@ -3,6 +3,7 @@ import { ViewStyle, StyleSheet, TextStyle } from "react-native";
 
 interface Style {
   container: ViewStyle;
+  contentContainer: ViewStyle;
   titleTextStyle: TextStyle;
   buttonStyle: ViewStyle;
   buttonTextStyle: TextStyle;
@@ -15,6 +16,11 @@ export default (theme: ExtendedTheme) => {
       flex: 1,
       alignItems: "center",
       justifyContent: "center",
+    },
+    contentContainer: {
+      marginTop: 16,
+      flexDirection: "row",
+      alignItems: "center",
     },
     titleTextStyle: {
       fontSize: 32,
