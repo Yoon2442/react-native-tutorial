@@ -40,7 +40,7 @@
       "@utils": ["./utils/"],
       "@assets": ["./assets/"],
       "@local-storage": ["./services/local-storage"]
-    }
+    },
   },
   "extends": "@tsconfig/react-native/tsconfig.json",
   "exclude": [
@@ -48,5 +48,5 @@
     "babel.config.js",
     "metro.config.js",
     "jest.config.js"
-  ]
+  ],
 }
