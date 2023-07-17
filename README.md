@@ -4,13 +4,27 @@ React Native 활용한 간단한 앱 만들기
 
 ## 목차
 
+- [미리보기 (Preview)](#preview)
 - [시작하기 (Getting Started)](#getting-started)
-- [단계별 가이드 (Step By Step Guide)](#step-by-step-guide)
+- [단계별 가이드 (Step by Step Guide)](#step-by-step-guide)
 - [문제 해결 (Troubleshooting)](#trouble-shooting)
 
-# React Native Tutorials (Typescript Boilerplate)
+# Preview
 
-React Native 활용한 간단한 앱 만들기
+<img alt="React Native Typescript Boilerplate" src="assets/logo.png" width="1050"/>
+
+[![A lot of fundamental features with Typescript support React Native Boilerplate](https://img.shields.io/badge/-A%20lot%20of%20fundamental%20features%20with%20Typescript%20support%20React%20Native%20Boilerplate-orange?style=for-the-badge)](https://github.com/WrathChaos/react-native-typescript-boilerplate)
+
+[![npm version](https://img.shields.io/npm/v/react-native-typescript-boilerplate.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-typescript-boilerplate)
+[![npm](https://img.shields.io/npm/dt/react-native-typescript-boilerplate.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-typescript-boilerplate)
+![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue.svg?style=for-the-badge)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
+
+<p align="center">
+  <img alt="React Native Typescript Boilerplate"
+        src="assets/react-native-typescript-boilerplate.gif" height="650" width="325" />
+</p>
 
 # Getting Started
 
@@ -22,7 +36,7 @@ To create a new project using the barebone boilerplate:
 git clone https://github.com/WrathChaos/react-native-typescript-boilerplate.git my-app-name
 ```
 
-# Step By Step Guide
+# Step by Step Guide
 
 ## Clean-Up & Simple Run
 
@@ -102,9 +116,7 @@ sdk.dir=/Users/username/Library/Android/sdk
 
 # Trouble shooting
 
-문제 해결
-
-> ### 2023-07-17 오류</br>
+> ### Issue (2023-07-17) </br>
 >
 > **Cannot find type definition file for 'jest'. The file is in the program because:Entry point of type library 'jest' specified in compilerOptions**
 >
@@ -127,21 +139,6 @@ sdk.dir=/Users/username/Library/Android/sdk
 >   }
 > }
 > ```
-
-<img alt="React Native Typescript Boilerplate" src="assets/logo.png" width="1050"/>
-
-[![A lot of fundamental features with Typescript support React Native Boilerplate](https://img.shields.io/badge/-A%20lot%20of%20fundamental%20features%20with%20Typescript%20support%20React%20Native%20Boilerplate-orange?style=for-the-badge)](https://github.com/WrathChaos/react-native-typescript-boilerplate)
-
-[![npm version](https://img.shields.io/npm/v/react-native-typescript-boilerplate.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-typescript-boilerplate)
-[![npm](https://img.shields.io/npm/dt/react-native-typescript-boilerplate.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-typescript-boilerplate)
-![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue.svg?style=for-the-badge)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
-
-<p align="center">
-  <img alt="React Native Typescript Boilerplate"
-        src="assets/react-native-typescript-boilerplate.gif" height="650" width="325" />
-</p>
 
 # 🥳 Version 3.5 is here 😍
 
@@ -201,7 +198,6 @@ We're proudly announce that `Version 3.5` is here!
   - Run `npx react-native-asset` command
 
 - **More and more! :)**
-
 
 # 📃 Documentations
 
