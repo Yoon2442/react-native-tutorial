@@ -52,7 +52,7 @@ export default (theme: ExtendedTheme) => {
     },
     contentContainer: {
       flex: 1,
-      marginTop: 16,
+      marginTop: 50,
     },
     listContainer: {
       marginTop: 8,

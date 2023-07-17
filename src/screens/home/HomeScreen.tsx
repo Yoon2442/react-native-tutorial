@@ -1,10 +1,8 @@
 import React, { useMemo } from "react";
-import { FlatList, Image, View } from "react-native";
+import { FlatList, View } from "react-native";
 import { useTheme } from "@react-navigation/native";
-import Icon, { IconType } from "react-native-dynamic-vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as NavigationService from "react-navigation-helpers";
-import RNBounceable from "@freakycoder/react-native-bounceable";
 
 /**
  * ? Local Imports
@@ -18,10 +16,6 @@ import CardItem from "./components/card-item/CardItem";
 import { SCREENS } from "@shared-constants";
 import Text from "@shared-components/text-wrapper/TextWrapper";
 import fonts from "@fonts";
-
-const profileURI =
-  // eslint-disable-next-line max-len
-  "https://images.unsplash.com/photo-1544568100-847a948585b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80";
 
 interface HomeScreenProps {}
 
@@ -38,27 +32,7 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
   /*                               Render Methods                               */
   /* -------------------------------------------------------------------------- */
 
-  const MenuButton = () => (
-    <RNBounceable>
-      <Icon
-        name="menu"
-        type={IconType.Ionicons}
-        color={colors.iconBlack}
-        size={30}
-      />
-    </RNBounceable>
-  );
-
-  const Header = () => (
-    <View style={styles.header}>
-      <MenuButton />
-      <Image
-        resizeMode="cover"
-        source={{ uri: profileURI }}
-        style={styles.profilePicImageStyle}
-      />
-    </View>
-  );
+  const Header = () => <View style={styles.header}></View>;
 
   const List = () => (
     <View style={styles.listContainer}>
@@ -74,14 +48,12 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
   const Welcome = () => (
     <>
       <Text h1 bold color={colors.text}>
-        Choose One
+        Choose Game
       </Text>
       <Text
         fontFamily={fonts.montserrat.lightItalic}
         color={colors.placeholder}
-      >
-        Games
-      </Text>
+      ></Text>
     </>
   );
 

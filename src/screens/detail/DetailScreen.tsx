@@ -3,6 +3,7 @@ import { View } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import * as NavigationService from "react-navigation-helpers";
 import AppContext from "../../../AppContext";
+import { Card } from "@rneui/base";
 /**
  *  Local Imports
  */
@@ -20,15 +21,34 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
 
   const Content = () => (
     <View style={styles.contentContainer}>
-      <Text>{dataContext.data.difficulty}</Text>
-      <Text>{dataContext.data.gameData.mission}</Text>
+      <CardContent />
     </View>
+  );
+
+  const CardContent = () => (
+    <Card
+      containerStyle={styles.cardContainer}
+      wrapperStyle={{ height: "70%" }}
+    >
+      <Card.Title style={styles.cardTitleTextStyle}>Mission</Card.Title>
+      <Card.Divider />
+      <View
+        style={{
+          position: "relative",
+          alignItems: "center",
+        }}
+      >
+        <Text style={styles.cardTitleTextStyle}>
+          {dataContext.data.gameData.mission}
+        </Text>
+      </View>
+    </Card>
   );
 
   return (
     <View style={styles.container}>
-      <Text h1 color={colors.text}>
-        Detail Screen
+      <Text h1 color={colors.text} style={styles.titleTextStyle}>
+        {dataContext.data.difficulty} Mode
       </Text>
       <Content />
       <RNBounceable

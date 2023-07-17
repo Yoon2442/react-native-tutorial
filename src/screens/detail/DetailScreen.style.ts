@@ -7,6 +7,8 @@ interface Style {
   titleTextStyle: TextStyle;
   buttonStyle: ViewStyle;
   buttonTextStyle: TextStyle;
+  cardContainer: ViewStyle;
+  cardTitleTextStyle: TextStyle;
 }
 
 export default (theme: ExtendedTheme) => {
@@ -15,20 +17,28 @@ export default (theme: ExtendedTheme) => {
     container: {
       flex: 1,
       alignItems: "center",
-      justifyContent: "center",
+      justifyContent: "space-around",
     },
     contentContainer: {
-      marginTop: 16,
       flexDirection: "row",
       alignItems: "center",
     },
+    cardContainer: {
+      borderRadius: 10,
+      width: "90%",
+    },
+    cardTitleTextStyle: {
+      fontSize: 20,
+    },
     titleTextStyle: {
+      marginTop: 50,
       fontSize: 32,
     },
     buttonStyle: {
       height: 45,
       width: "90%",
-      marginTop: 32,
+      marginTop: 10,
+      marginBottom: 50,
       borderRadius: 12,
       alignItems: "center",
       justifyContent: "center",
