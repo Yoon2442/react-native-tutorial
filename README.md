@@ -16,7 +16,7 @@ React Native 활용한 간단한 앱 만들기
 
 문제 해결
 
-> ### 2023-05-17 오류</br>
+> ### 2023-07-17 오류</br>
 >
 > **Cannot find type definition file for 'jest'. The file is in the program because:Entry point of type library 'jest' specified in compilerOptions**
 >
