@@ -4,7 +4,7 @@ React Native 활용한 간단한 앱 만들기
 
 ## 목차
 
-- [시작하기 (Getting Started)](#🚀-getting-started)
+- [시작하기 (Getting Started)](#getting-started)
 - [문제 해결 (Troubleshooting)](#trouble-shooting)
 <p>&nbsp;</p>
 
@@ -114,7 +114,7 @@ We're proudly announce that `Version 3.5` is here!
 
 - **More and more! :)**
 
-# 🚀 Getting Started
+# Getting Started
 
 ## Quick Start
 
