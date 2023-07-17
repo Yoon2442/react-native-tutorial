@@ -1,16 +1,17 @@
 // src/store/types.ts
 
+import { ICardItem } from "@services/models";
+
 export interface AppState {
-  difficulty: string;
-  mission: string[];
+  data: ICardItem;
 }
 
 export enum ActionType {
-  SET_DIFFICULTY = "SET_DIFFICULTY",
+  SET_DATA = "SET_DATA",
 }
 
-interface SetDifficultyAction {
-  type: ActionType.SET_DIFFICULTY;
+interface SetDataAction {
+  type: ActionType.SET_DATA;
 }
 
-export type Action = SetDifficultyAction;
+export type Action = SetDataAction;

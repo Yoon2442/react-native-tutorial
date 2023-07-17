@@ -1,36 +1,27 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useContext } from "react";
 import { View } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import * as NavigationService from "react-navigation-helpers";
-import { connect } from "react-redux";
-import { AppState } from "../../store/types";
+import AppContext from "../../../AppContext";
 /**
- * ? Local Imports
+ *  Local Imports
  */
 import createStyles from "./DetailScreen.style";
 import Text from "@shared-components/text-wrapper/TextWrapper";
 import RNBounceable from "@freakycoder/react-native-bounceable";
-// import { GameData } from "@services/models";
 
-const mapStateToProps = (state: AppState) => ({
-  difficulty: state.difficulty,
-  mission: state.mission,
-});
+interface DetailScreenProps {}
 
-interface DetailScreenProps {
-  difficulty: string;
-  mission: string[];
-}
-
-const DetailScreen: React.FC<DetailScreenProps> = ({ difficulty, mission }) => {
+const DetailScreen: React.FC<DetailScreenProps> = () => {
   const theme = useTheme();
   const { colors } = theme;
   const styles = useMemo(() => createStyles(theme), [theme]);
+  const dataContext = useContext(AppContext);
 
   const Content = () => (
     <View style={styles.contentContainer}>
-      <Text>{difficulty}</Text>
-      <Text>{mission}</Text>
+      <Text>{dataContext.data.difficulty}</Text>
+      <Text>{dataContext.data.gameData.mission}</Text>
     </View>
   );
 
@@ -50,4 +41,4 @@ const DetailScreen: React.FC<DetailScreenProps> = ({ difficulty, mission }) => {
   );
 };
 
-export default connect(mapStateToProps)(DetailScreen);
+export default DetailScreen;

@@ -1,8 +1,9 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useContext } from "react";
 import { View, StyleProp, ViewStyle } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import Icon, { IconType } from "react-native-dynamic-vector-icons";
 import RNBounceable from "@freakycoder/react-native-bounceable";
+import AppContext from "../../../../../AppContext";
 /**
  * ? Local Imports
  */
@@ -24,6 +25,8 @@ const CardItem: React.FC<ICardItemProps> = ({ style, data, onPress }) => {
   const styles = useMemo(() => createStyles(theme), [theme]);
 
   const { difficulty, description, language, star, fork } = data;
+
+  const dataContext = useContext(AppContext);
 
   const Header = () => (
     <>
@@ -57,8 +60,13 @@ const CardItem: React.FC<ICardItemProps> = ({ style, data, onPress }) => {
     </View>
   );
 
+  const customOnPress = () => {
+    onPress();
+    dataContext.dataSetting(data);
+  };
+
   return (
-    <RNBounceable style={[styles.container, style]} onPress={onPress}>
+    <RNBounceable style={[styles.container, style]} onPress={customOnPress}>
       <Header />
       <View style={styles.contentContainer}>
         <Language />

@@ -5,7 +5,7 @@ export default [
     language: "Typescript",
     star: 342,
     fork: 152,
-    gameData: { mission: ["test"] },
+    gameData: { mission: ["test1"] },
   },
   {
     difficulty: "Normal",
@@ -13,7 +13,7 @@ export default [
     language: "Typescript",
     star: 272,
     fork: 22,
-    gameData: { mission: ["test"] },
+    gameData: { mission: ["test2"] },
   },
   {
     difficulty: "Hard",
@@ -21,7 +21,7 @@ export default [
     language: "Typescript",
     star: 266,
     fork: 22,
-    gameData: { mission: ["test"] },
+    gameData: { mission: ["test3"] },
   },
   {
     difficulty: "Tutorials",
@@ -29,6 +29,6 @@ export default [
     language: "Typescript",
     star: 412,
     fork: 28,
-    gameData: { mission: ["test"] },
+    gameData: { mission: ["test4"] },
   },
 ];

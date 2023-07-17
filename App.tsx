@@ -1,9 +1,8 @@
 import "react-native-gesture-handler";
-import React from "react";
+import React, { useState } from "react";
 import { StatusBar, useColorScheme, LogBox } from "react-native";
 import SplashScreen from "react-native-splash-screen";
-import { Provider } from "react-redux";
-import store from "./src/store";
+import AppContext from "./AppContext";
 /**
  * ? Local Imports
  */
@@ -15,6 +14,7 @@ LogBox.ignoreAllLogs();
 const App = () => {
   const scheme = useColorScheme();
   const isDarkMode = scheme === "dark";
+  const [data, setData] = useState(null);
 
   React.useEffect(() => {
     StatusBar.setBarStyle(isDarkMode ? "light-content" : "dark-content");
@@ -28,11 +28,20 @@ const App = () => {
     }, 750);
   }, [scheme, isDarkMode]);
 
+  const dataSetting = (data: any) => {
+    setData(data);
+  };
+
+  const contextSettings = {
+    data,
+    dataSetting,
+  };
+
   return (
     <>
-      <Provider store={store}>
+      <AppContext.Provider value={contextSettings}>
         <Navigation />
-      </Provider>
+      </AppContext.Provider>
     </>
   );
 };

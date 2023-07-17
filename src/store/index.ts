@@ -4,14 +4,20 @@ import { createStore } from "redux";
 import { AppState, Action, ActionType } from "./types";
 
 const initialState: AppState = {
-  difficulty: "easy",
-  mission: ["mission1", "mission2"],
+  data: {
+    difficulty: "",
+    description: "",
+    language: "",
+    star: 0,
+    fork: 0,
+    gameData: { mission: [] },
+  },
 };
 
 const reducer = (state = initialState, action: Action): AppState => {
   switch (action.type) {
-    case ActionType.SET_DIFFICULTY:
-      return { ...state, difficulty: state.difficulty, mission: state.mission };
+    case ActionType.SET_DATA:
+      return { ...state, data: state.data };
     default:
       return state;
   }
