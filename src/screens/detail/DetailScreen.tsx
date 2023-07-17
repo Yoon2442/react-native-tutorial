@@ -18,7 +18,7 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
   const { colors } = theme;
   const styles = useMemo(() => createStyles(theme), [theme]);
   const dataContext = useContext(AppContext);
-
+  console.log(typeof dataContext);
   const Content = () => (
     <View style={styles.contentContainer}>
       <CardContent />
