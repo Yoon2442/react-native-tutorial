@@ -1,3 +1,45 @@
+# React Native Tutorials (Typescript Boilerplate)
+
+React Native 활용한 간단한 앱 만들기
+
+## 목차
+
+- [시작하기 (Getting Started)](#🚀-getting-started)
+- [문제 해결 (Troubleshooting)](#trouble-shooting)
+<p>&nbsp;</p>
+
+# React Native Tutorials (Typescript Boilerplate)
+
+React Native 활용한 간단한 앱 만들기
+
+# Trouble shooting
+
+문제 해결
+
+> ### 2023-05-17 오류</br>
+>
+> **Cannot find type definition file for 'jest'. The file is in the program because:Entry point of type library 'jest' specified in compilerOptions**
+>
+> Visual Studio Code의 PROBLEMS 탭에 위와 같은 에러가 발생했다. 해결 방법은 아래와 같다.
+>
+> #### Solution
+>
+> VSCode 터미널(cmd)에서 아래 명령어 실행
+>
+> ```powershell
+> npm install --save-dev @types/jest
+> ```
+>
+> tsconfig.json 파일에서 "types" 옵션에 아래와 같이 추가
+>
+> ```json
+> {
+>   "compilerOptions": {
+>     "types": ["jest"]
+>   }
+> }
+> ```
+
 <img alt="React Native Typescript Boilerplate" src="assets/logo.png" width="1050"/>
 
 [![A lot of fundamental features with Typescript support React Native Boilerplate](https://img.shields.io/badge/-A%20lot%20of%20fundamental%20features%20with%20Typescript%20support%20React%20Native%20Boilerplate-orange?style=for-the-badge)](https://github.com/WrathChaos/react-native-typescript-boilerplate)
@@ -66,6 +108,7 @@ We're proudly announce that `Version 3.5` is here!
   - Auto prettier on pre-commit
   - Awesome ESLint Integration
 - **Built-in Custom Font Implementation**
+
   - All you need to do is copy-paste the .tff files into `assets/fonts` folder
   - Run `npx react-native-asset` command
 
