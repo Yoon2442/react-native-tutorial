@@ -5,7 +5,7 @@ React Native 활용한 간단한 앱 만들기
 ## 목차
 
 - [시작하기 (Getting Started)](#getting-started)
-- [단계별 가이드 (Step By Step Guide)](#🎯-step-by-step-guide)
+- [단계별 가이드 (Step By Step Guide)](#step-by-step-guide)
 - [문제 해결 (Troubleshooting)](#trouble-shooting)
 
 # React Native Tutorials (Typescript Boilerplate)
@@ -22,7 +22,7 @@ To create a new project using the barebone boilerplate:
 git clone https://github.com/WrathChaos/react-native-typescript-boilerplate.git my-app-name
 ```
 
-# 🎯 Step By Step Guide
+# Step By Step Guide
 
 ## Clean-Up & Simple Run
 
