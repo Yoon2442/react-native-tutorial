@@ -1,4 +1,4 @@
-import React, { useMemo, useContext } from "react";
+import React, { useMemo, useContext, useState } from "react";
 import { View } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import * as NavigationService from "react-navigation-helpers";
@@ -18,7 +18,9 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
   const { colors } = theme;
   const styles = useMemo(() => createStyles(theme), [theme]);
   const dataContext = useContext(AppContext);
-  console.log(typeof dataContext);
+
+  const [missions, setMissions] = useState(dataContext.data.gameData.mission);
+
   const Content = () => (
     <View style={styles.contentContainer}>
       <CardContent />
@@ -39,11 +41,26 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
         }}
       >
         <Text style={styles.cardTitleTextStyle}>
-          {dataContext.data.gameData.mission}
+          {missions.length == 0 ? "Game Over" : missions[0]}
         </Text>
+        <RNBounceable
+          style={styles.nextButtonStyle}
+          onPress={onPressNextButton}
+        >
+          <Text color={colors.white}>Next</Text>
+        </RNBounceable>
       </View>
     </Card>
   );
+
+  const onPressGoBackButton = () => {
+    NavigationService.goBack();
+  };
+
+  const onPressNextButton = () => {
+    missions.shift();
+    setMissions([...missions]);
+  };
 
   return (
     <View style={styles.container}>
@@ -51,10 +68,7 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
         {dataContext.data.difficulty} Mode
       </Text>
       <Content />
-      <RNBounceable
-        style={styles.buttonStyle}
-        onPress={() => NavigationService.goBack()}
-      >
+      <RNBounceable style={styles.buttonStyle} onPress={onPressGoBackButton}>
         <Text color={colors.white}>Go back to Home</Text>
       </RNBounceable>
     </View>

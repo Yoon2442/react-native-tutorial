@@ -9,6 +9,7 @@ interface Style {
   buttonTextStyle: TextStyle;
   cardContainer: ViewStyle;
   cardTitleTextStyle: TextStyle;
+  nextButtonStyle: ViewStyle;
 }
 
 export default (theme: ExtendedTheme) => {
@@ -54,6 +55,23 @@ export default (theme: ExtendedTheme) => {
     buttonTextStyle: {
       color: colors.text,
       fontWeight: "700",
+    },
+    nextButtonStyle: {
+      height: 45,
+      width: "30%",
+      marginTop: 10,
+      marginBottom: 50,
+      borderRadius: 12,
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: colors.primary,
+      shadowRadius: 5,
+      shadowOpacity: 0.7,
+      shadowColor: colors.primary,
+      shadowOffset: {
+        width: 0,
+        height: 3,
+      },
     },
   });
 };
