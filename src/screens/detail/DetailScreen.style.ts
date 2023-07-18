@@ -10,6 +10,7 @@ interface Style {
   cardContainer: ViewStyle;
   cardTitleTextStyle: TextStyle;
   nextButtonStyle: ViewStyle;
+  missionTextStyle: TextStyle;
 }
 
 export default (theme: ExtendedTheme) => {
@@ -57,7 +58,7 @@ export default (theme: ExtendedTheme) => {
       fontWeight: "700",
     },
     nextButtonStyle: {
-      marginTop: "55%",
+      marginTop: "45%",
       height: 45,
       width: "30%",
       borderRadius: 12,
@@ -72,5 +73,6 @@ export default (theme: ExtendedTheme) => {
         height: 3,
       },
     },
+    missionTextStyle: { fontSize: 20, marginTop: "20%" },
   });
 };

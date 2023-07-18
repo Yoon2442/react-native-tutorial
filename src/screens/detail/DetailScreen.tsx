@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import * as NavigationService from "react-navigation-helpers";
 import AppContext from "../../../AppContext";
-import { Card } from "@rneui/base";
+import { Card, LinearProgress } from "@rneui/base";
 /**
  *  Local Imports
  */
@@ -19,7 +19,9 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
   const styles = useMemo(() => createStyles(theme), [theme]);
   const dataContext = useContext(AppContext);
 
-  const [missions, setMissions] = useState(dataContext.data.gameData.mission);
+  const [missions] = useState(dataContext.data.gameData.mission);
+  const [missionNumber, setMissionNumber] = useState(0);
+  const [missionCount] = useState(dataContext.data.gameData.mission.length);
 
   const Title = () => (
     <Text h1 color={colors.text} style={styles.titleTextStyle}>
@@ -46,21 +48,28 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
           justifyContent: "space-around",
         }}
       >
-        <Text
-          style={{
-            fontSize: 20,
-            marginTop: "10%",
-          }}
-        >
-          {missions.length == 0 ? "Game Over" : missions[0]}
-        </Text>
+        <Mission />
         <NextButton />
       </View>
+      <LinearProgress
+        style={{
+          width: "100%",
+        }}
+        color={colors.primary}
+        value={(missionNumber + 1) / missionCount}
+        animation={false}
+      />
     </Card>
   );
 
+  const Mission = () => (
+    <Text style={styles.missionTextStyle}>
+      {missionNumber == missionCount ? "Game Over" : missions[missionNumber]}
+    </Text>
+  );
+
   const NextButton = () =>
-    missions.length == 0 ? (
+    missionNumber == missionCount ? (
       <></>
     ) : (
       <RNBounceable style={styles.nextButtonStyle} onPress={onPressNextButton}>
@@ -83,9 +92,7 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
   };
 
   const onPressNextButton = () => {
-    const tempMission = [...missions];
-    tempMission.shift();
-    setMissions([...tempMission]);
+    setMissionNumber(missionNumber + 1);
   };
 
   return (
