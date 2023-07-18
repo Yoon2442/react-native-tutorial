@@ -140,6 +140,96 @@ sdk.dir=/Users/username/Library/Android/sdk
 > }
 > ```
 
+> ### Issue (2023-07-18)
+>
+> **WARN Found screens with the same name nested inside one another. Check: Home, Home > Home This can cause confusing behavior during navigation. Consider using unique names for each screen instead.**
+>
+> Node 터미널에 위와 같이 에러 발생
+>
+> #### Solution
+>
+> src\navigation\index.tsx 에서 return 부분의 `<Stack.Screen>`의 이름과 `RenderTabNavigation` 컴포넌트의 `<Tab.Screen>`의 이름이 겹쳐서 발생하는 경고인 것 같다.
+>
+> **return**
+>
+> ```tsx
+> return (
+>   <NavigationContainer
+>     ref={navigationRef}
+>     onReady={() => {
+>       isReadyRef.current = true;
+>     }}
+>     theme={isDarkMode ? DarkTheme : LightTheme}
+>   >
+>     <Stack.Navigator screenOptions={{ headerShown: false }}>
+>       <Stack.Screen name={SCREENS.HOME} component={RenderTabNavigation} />
+>       <Stack.Screen name={SCREENS.DETAIL}>
+>         {(props) => <DetailScreen {...props} />}
+>       </Stack.Screen>
+>     </Stack.Navigator>
+>   </NavigationContainer>
+> );
+> ```
+>
+> **RenderTabNavigation 컴포넌트**
+>
+> ```tsx
+> const RenderTabNavigation = () => {
+>   return (
+>     <Tab.Navigator
+>       screenOptions={({ route }) => ({
+>         headerShown: false,
+>         tabBarIcon: ({ focused, color, size }) =>
+>           renderTabIcon(route, focused, color, size),
+>         tabBarActiveTintColor: palette.primary,
+>         tabBarInactiveTintColor: "gray",
+>         tabBarStyle: {
+>           backgroundColor: isDarkMode ? palette.black : palette.white,
+>         },
+>       })}
+>     >
+>       <Tab.Screen name={SCREENS.HOME} component={HomeScreen} />
+>       <Tab.Screen name={SCREENS.SEARCH} component={SearchScreen} />
+>       <Tab.Screen
+>         name={SCREENS.NOTIFICATION}
+>         component={NotificationScreen}
+>       />
+>       <Tab.Screen name={SCREENS.PROFILE} component={ProfileScreen} />
+>     </Tab.Navigator>
+>   );
+> };
+> ```
+>
+> ```tsx
+> // return 부분의 <Stack.Screen>
+> <Stack.Screen name={SCREENS.HOME} component={RenderTabNavigation} />
+> ```
+>
+> ```tsx
+> // RenderTabNavigation 컴포넌트의 <Tab.Screen>
+> <Tab.Screen name={SCREENS.HOME} component={HomeScreen} />
+> ```
+>
+> `src\shared\constants\index.ts` 에 아래와 같이 추가해 준다.
+>
+> ```ts
+> export const SCREENS = {
+>   OVERVIEW: "Overview", // 추가된 코드 (Added line)
+>   HOME: "Home",
+>   SEARCH: "Search",
+>   NOTIFICATION: "Notification",
+>   PROFILE: "Profile",
+>   DETAIL: "Detail",
+> };
+> ```
+>
+> 그리고 return 부분의 `<Stack.Screen>` 을 아래와 같이 수정해 주면 경고 메시지가 사라진다.
+>
+> ```tsx
+> // return 부분의 <Stack.Screen>
+> <Stack.Screen name={SCREENS.OVERVIEW} component={RenderTabNavigation} />
+> ```
+
 # 🥳 Version 3.5 is here 😍
 
 We're proudly announce that `Version 3.5` is here!
