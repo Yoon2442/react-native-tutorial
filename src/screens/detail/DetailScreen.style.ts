@@ -57,10 +57,9 @@ export default (theme: ExtendedTheme) => {
       fontWeight: "700",
     },
     nextButtonStyle: {
+      marginTop: "55%",
       height: 45,
       width: "30%",
-      marginTop: 10,
-      marginBottom: 50,
       borderRadius: 12,
       alignItems: "center",
       justifyContent: "center",

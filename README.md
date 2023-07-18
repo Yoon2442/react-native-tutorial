@@ -140,7 +140,7 @@ sdk.dir=/Users/username/Library/Android/sdk
 > }
 > ```
 
-> ### Issue (2023-07-18)
+> ### Warning (2023-07-18)
 >
 > **WARN Found screens with the same name nested inside one another. Check: Home, Home > Home This can cause confusing behavior during navigation. Consider using unique names for each screen instead.**
 >
@@ -148,7 +148,7 @@ sdk.dir=/Users/username/Library/Android/sdk
 >
 > #### Solution
 >
-> src\navigation\index.tsx 에서 return 부분의 `<Stack.Screen>`의 이름과 `RenderTabNavigation` 컴포넌트의 `<Tab.Screen>`의 이름이 겹쳐서 발생하는 경고인 것 같다.
+> `src\navigation\index.tsx` 에서 return 부분의 `<Stack.Screen>`의 이름과 `RenderTabNavigation` 컴포넌트의 `<Tab.Screen>`의 이름이 겹쳐서 발생하는 경고인 것 같다.
 >
 > **return**
 >

@@ -36,11 +36,16 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
       <Card.Divider />
       <View
         style={{
-          position: "relative",
           alignItems: "center",
+          justifyContent: "space-around",
         }}
       >
-        <Text style={styles.cardTitleTextStyle}>
+        <Text
+          style={{
+            fontSize: 20,
+            marginTop: "10%",
+          }}
+        >
           {missions.length == 0 ? "Game Over" : missions[0]}
         </Text>
         <NextButton />
@@ -53,7 +58,9 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
       <></>
     ) : (
       <RNBounceable style={styles.nextButtonStyle} onPress={onPressNextButton}>
-        <Text color={colors.white}>Next</Text>
+        <Text style={{ fontSize: 20 }} color={colors.white}>
+          Next
+        </Text>
       </RNBounceable>
     );
 
@@ -65,7 +72,6 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
     const tempMission = [...missions];
     tempMission.shift();
     setMissions([...tempMission]);
-    console.log(tempMission);
   };
 
   return (
@@ -75,7 +81,9 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
       </Text>
       <Content />
       <RNBounceable style={styles.buttonStyle} onPress={onPressGoBackButton}>
-        <Text color={colors.white}>Go back to Home</Text>
+        <Text style={{ fontSize: 20 }} color={colors.white}>
+          Go back to Home
+        </Text>
       </RNBounceable>
     </View>
   );
