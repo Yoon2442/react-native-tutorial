@@ -43,23 +43,29 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
         <Text style={styles.cardTitleTextStyle}>
           {missions.length == 0 ? "Game Over" : missions[0]}
         </Text>
-        <RNBounceable
-          style={styles.nextButtonStyle}
-          onPress={onPressNextButton}
-        >
-          <Text color={colors.white}>Next</Text>
-        </RNBounceable>
+        <NextButton />
       </View>
     </Card>
   );
+
+  const NextButton = () =>
+    missions.length == 0 ? (
+      <></>
+    ) : (
+      <RNBounceable style={styles.nextButtonStyle} onPress={onPressNextButton}>
+        <Text color={colors.white}>Next</Text>
+      </RNBounceable>
+    );
 
   const onPressGoBackButton = () => {
     NavigationService.goBack();
   };
 
   const onPressNextButton = () => {
-    missions.shift();
-    setMissions([...missions]);
+    const tempMission = [...missions];
+    tempMission.shift();
+    setMissions([...tempMission]);
+    console.log(tempMission);
   };
 
   return (
