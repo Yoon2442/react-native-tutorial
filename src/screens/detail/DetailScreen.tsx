@@ -21,6 +21,12 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
 
   const [missions, setMissions] = useState(dataContext.data.gameData.mission);
 
+  const Title = () => (
+    <Text h1 color={colors.text} style={styles.titleTextStyle}>
+      {dataContext.data.difficulty} Mode
+    </Text>
+  );
+
   const Content = () => (
     <View style={styles.contentContainer}>
       <CardContent />
@@ -64,6 +70,14 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
       </RNBounceable>
     );
 
+  const GoBackButton = () => (
+    <RNBounceable style={styles.buttonStyle} onPress={onPressGoBackButton}>
+      <Text style={{ fontSize: 20 }} color={colors.white}>
+        Go back to Home
+      </Text>
+    </RNBounceable>
+  );
+
   const onPressGoBackButton = () => {
     NavigationService.goBack();
   };
@@ -76,15 +90,9 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
 
   return (
     <View style={styles.container}>
-      <Text h1 color={colors.text} style={styles.titleTextStyle}>
-        {dataContext.data.difficulty} Mode
-      </Text>
+      <Title />
       <Content />
-      <RNBounceable style={styles.buttonStyle} onPress={onPressGoBackButton}>
-        <Text style={{ fontSize: 20 }} color={colors.white}>
-          Go back to Home
-        </Text>
-      </RNBounceable>
+      <GoBackButton />
     </View>
   );
 };
