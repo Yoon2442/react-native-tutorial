@@ -10,6 +10,7 @@ interface Style {
   cardContainer: ViewStyle;
   cardTitleTextStyle: TextStyle;
   nextButtonStyle: ViewStyle;
+  prevButtonStyle: ViewStyle;
   missionTextStyle: TextStyle;
 }
 
@@ -26,6 +27,8 @@ export default (theme: ExtendedTheme) => {
       alignItems: "center",
     },
     cardContainer: {
+      paddingTop: 10,
+      padding: 0,
       borderRadius: 10,
       width: "90%",
     },
@@ -58,7 +61,6 @@ export default (theme: ExtendedTheme) => {
       fontWeight: "700",
     },
     nextButtonStyle: {
-      marginTop: "45%",
       height: 45,
       width: "30%",
       borderRadius: 12,
@@ -72,7 +74,22 @@ export default (theme: ExtendedTheme) => {
         width: 0,
         height: 3,
       },
+      transform: [{ rotate: "-90deg" }],
     },
-    missionTextStyle: { fontSize: 20, marginTop: "20%" },
+    prevButtonStyle: {
+      width: "30%",
+      borderRadius: 12,
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: colors.primary,
+      shadowRadius: 5,
+      shadowOpacity: 0.7,
+      shadowColor: colors.primary,
+      shadowOffset: {
+        width: 0,
+        height: 3,
+      },
+    },
+    missionTextStyle: { fontSize: 20 },
   });
 };

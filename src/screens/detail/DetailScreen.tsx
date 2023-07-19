@@ -3,7 +3,9 @@ import { View } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import * as NavigationService from "react-navigation-helpers";
 import AppContext from "../../../AppContext";
-import { Card, LinearProgress } from "@rneui/base";
+import { Card, LinearProgress, Button } from "@rneui/base";
+import Icon from "react-native-vector-icons/FontAwesome";
+
 /**
  *  Local Imports
  */
@@ -45,20 +47,25 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
       <View
         style={{
           alignItems: "center",
-          justifyContent: "space-around",
+          flex: 1,
+          flexDirection: "column",
+          justifyContent: "space-between",
         }}
       >
         <Mission />
-        <NextButton />
+        <BackandForthButton />
+        <LinearProgress
+          style={{
+            width: "100%",
+            height: "5%",
+            borderBottomEndRadius: 10,
+            borderBottomStartRadius: 10,
+          }}
+          color={colors.primary}
+          value={(missionNumber + 1) / missionCount}
+          animation={false}
+        />
       </View>
-      <LinearProgress
-        style={{
-          width: "100%",
-        }}
-        color={colors.primary}
-        value={(missionNumber + 1) / missionCount}
-        animation={false}
-      />
     </Card>
   );
 
@@ -68,16 +75,30 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
     </Text>
   );
 
-  const NextButton = () =>
-    missionNumber == missionCount ? (
-      <></>
-    ) : (
-      <RNBounceable style={styles.nextButtonStyle} onPress={onPressNextButton}>
-        <Text style={{ fontSize: 20 }} color={colors.white}>
-          Next
-        </Text>
-      </RNBounceable>
-    );
+  const BackandForthButton = () => (
+    <View
+      style={{
+        width: "100%",
+        alignItems: "center",
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "space-between",
+      }}
+    >
+      <Button
+        style={styles.prevButtonStyle}
+        disabled={missionNumber == 0}
+        icon={<Icon name="chevron-left" size={10} color="white" />}
+        onPress={onPressPrevButton}
+      ></Button>
+      <Button
+        style={styles.nextButtonStyle}
+        disabled={missionNumber == missionCount}
+        icon={<Icon name="chevron-right" size={10} color="white" />}
+        onPress={onPressNextButton}
+      ></Button>
+    </View>
+  );
 
   const GoBackButton = () => (
     <RNBounceable style={styles.buttonStyle} onPress={onPressGoBackButton}>
@@ -92,7 +113,13 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
   };
 
   const onPressNextButton = () => {
+    if (missionNumber == missionCount) return;
     setMissionNumber(missionNumber + 1);
+  };
+
+  const onPressPrevButton = () => {
+    if (missionNumber == 0) return;
+    setMissionNumber(missionNumber - 1);
   };
 
   return (
