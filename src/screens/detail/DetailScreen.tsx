@@ -40,7 +40,7 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
   const CardContent = () => (
     <Card
       containerStyle={styles.cardContainer}
-      wrapperStyle={{ height: "70%" }}
+      wrapperStyle={{ height: "65%" }}
     >
       <Card.Title style={styles.cardTitleTextStyle}>Mission</Card.Title>
       <Card.Divider />
@@ -52,7 +52,6 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
           justifyContent: "space-between",
         }}
       >
-        <Mission />
         <BackandForthButton />
         <Progress />
       </View>
@@ -68,6 +67,7 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
   const BackandForthButton = () => (
     <View
       style={{
+        marginTop: "-5%",
         width: "100%",
         alignItems: "center",
         flex: 1,
@@ -90,6 +90,8 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
         }
         onPress={onPressPrevButton}
       ></Button>
+      <Mission />
+
       <Button
         buttonStyle={styles.chevronButtonStyle}
         icon={

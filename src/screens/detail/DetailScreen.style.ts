@@ -36,14 +36,13 @@ export default (theme: ExtendedTheme) => {
       fontSize: 20,
     },
     titleTextStyle: {
-      marginTop: 50,
+      marginTop: "20%",
       fontSize: 32,
     },
     buttonStyle: {
       height: 45,
       width: "90%",
-      marginTop: 10,
-      marginBottom: 50,
+      marginBottom: "20%",
       borderRadius: 12,
       alignItems: "center",
       justifyContent: "center",
