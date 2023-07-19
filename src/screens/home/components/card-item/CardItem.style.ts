@@ -17,16 +17,18 @@ export default (theme: ExtendedTheme) => {
   const { colors } = theme;
   return StyleSheet.create<Style>({
     container: {
-      padding: 16,
+      paddingTop: 20,
+      paddingBottom: 10,
       marginTop: 16,
       borderWidth: 1,
       borderRadius: 8,
       width: ScreenWidth * 0.9,
       borderColor: colors.borderColor,
       backgroundColor: colors.dynamicBackground,
+      alignItems: "center",
     },
     descriptionTextStyle: {
-      marginTop: 8,
+      marginTop: 15,
     },
     contentContainer: {
       marginTop: 16,
