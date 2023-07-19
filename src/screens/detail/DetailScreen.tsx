@@ -54,17 +54,7 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
       >
         <Mission />
         <BackandForthButton />
-        <LinearProgress
-          style={{
-            width: "100%",
-            height: "5%",
-            borderBottomEndRadius: 10,
-            borderBottomStartRadius: 10,
-          }}
-          color={colors.primary}
-          value={(missionNumber + 1) / missionCount}
-          animation={false}
-        />
+        <Progress />
       </View>
     </Card>
   );
@@ -86,15 +76,33 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
       }}
     >
       <Button
-        style={styles.prevButtonStyle}
-        disabled={missionNumber == 0}
-        icon={<Icon name="chevron-left" size={10} color="white" />}
+        buttonStyle={styles.chevronButtonStyle}
+        icon={
+          <Icon
+            style={
+              missionNumber == 0
+                ? styles.disabledIconStyle
+                : styles.chevronIconStyle
+            }
+            name="chevron-left"
+            size={10}
+          />
+        }
         onPress={onPressPrevButton}
       ></Button>
       <Button
-        style={styles.nextButtonStyle}
-        disabled={missionNumber == missionCount}
-        icon={<Icon name="chevron-right" size={10} color="white" />}
+        buttonStyle={styles.chevronButtonStyle}
+        icon={
+          <Icon
+            style={
+              missionNumber == missionCount
+                ? styles.disabledIconStyle
+                : styles.chevronIconStyle
+            }
+            name="chevron-right"
+            size={10}
+          />
+        }
         onPress={onPressNextButton}
       ></Button>
     </View>
@@ -106,6 +114,20 @@ const DetailScreen: React.FC<DetailScreenProps> = () => {
         Go back to Home
       </Text>
     </RNBounceable>
+  );
+
+  const Progress = () => (
+    <LinearProgress
+      style={{
+        width: "100%",
+        height: "5%",
+        borderBottomEndRadius: 10,
+        borderBottomStartRadius: 10,
+      }}
+      color={colors.primary}
+      value={(missionNumber + 1) / missionCount}
+      animation={false}
+    />
   );
 
   const onPressGoBackButton = () => {

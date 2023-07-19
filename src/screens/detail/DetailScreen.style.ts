@@ -1,6 +1,5 @@
 import { ExtendedTheme } from "@react-navigation/native";
 import { ViewStyle, StyleSheet, TextStyle } from "react-native";
-
 interface Style {
   container: ViewStyle;
   contentContainer: ViewStyle;
@@ -9,9 +8,10 @@ interface Style {
   buttonTextStyle: TextStyle;
   cardContainer: ViewStyle;
   cardTitleTextStyle: TextStyle;
-  nextButtonStyle: ViewStyle;
-  prevButtonStyle: ViewStyle;
+  chevronButtonStyle: ViewStyle;
   missionTextStyle: TextStyle;
+  chevronIconStyle: ViewStyle;
+  disabledIconStyle: ViewStyle;
 }
 
 export default (theme: ExtendedTheme) => {
@@ -60,36 +60,13 @@ export default (theme: ExtendedTheme) => {
       color: colors.text,
       fontWeight: "700",
     },
-    nextButtonStyle: {
-      height: 45,
-      width: "30%",
-      borderRadius: 12,
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: colors.primary,
-      shadowRadius: 5,
-      shadowOpacity: 0.7,
-      shadowColor: colors.primary,
-      shadowOffset: {
-        width: 0,
-        height: 3,
-      },
-      transform: [{ rotate: "-90deg" }],
+    chevronButtonStyle: {
+      backgroundColor: "transparent",
+      height: 40,
+      width: 40,
     },
-    prevButtonStyle: {
-      width: "30%",
-      borderRadius: 12,
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: colors.primary,
-      shadowRadius: 5,
-      shadowOpacity: 0.7,
-      shadowColor: colors.primary,
-      shadowOffset: {
-        width: 0,
-        height: 3,
-      },
-    },
+    chevronIconStyle: { color: colors.primary, opacity: 0.8, fontSize: 20 },
+    disabledIconStyle: { color: "gray", opacity: 0.5, fontSize: 20 },
     missionTextStyle: { fontSize: 20 },
   });
 };
